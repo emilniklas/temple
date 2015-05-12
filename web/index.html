@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script type="application/dart">
+    import 'package:temple/temple.dart';
+    import 'dart:html';
+    import 'dart:async';
+
+    View mainView;
+
+    main() async {
+        var view = new View('<h1>{{title}}</h1><p>{{body}}</p><a href={{link}} target={{targetVar}}>link</a>', initialData: {
+            'title': 'Title',
+            'body': 'Lorem ipsum',
+            'link': '/link',
+            'targetVar': '_blank',
+        });
+
+        mainView = view;
+
+        document.body.append(view.fragment);
+    }
+</script>
+</body>
+</html>
